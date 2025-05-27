@@ -9,8 +9,7 @@ app.use(express.json());
 app.post('/predict', async (req, res) => {
   try {
     const {new_ad} = req.body;
-    console.log(new_ad);
-    
+
     const result = await trainAndPredictFromInput(new_ad);
     res.json(result);
   } catch (err) {
