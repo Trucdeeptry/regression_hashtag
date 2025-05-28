@@ -12,7 +12,11 @@ app.post('/predict', async (req, res) => {
     const {new_ad} = req.body;
 
     const result = await trainAndPredictFromInput(new_ad);
-    res.json(result);
+  
+    
+    res.json({
+      result
+    });
   } catch (err) {
     console.error('❌ Lỗi dự đoán:', err);
     res.status(500).json({ error: 'Lỗi xử lý' });
