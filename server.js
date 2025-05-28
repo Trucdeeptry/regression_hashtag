@@ -1,9 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const { trainAndPredictFromInput } = require('./lib/regresstion.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+app.use(cors());
 app.use(express.json());
 
 app.post('/predict', async (req, res) => {
